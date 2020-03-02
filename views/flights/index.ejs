@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<table id="list">
+  <thead>
+    <tr>
+      <th>Airline</th>
+      <th>Airport</th>
+      <th>Flight Number</th>
+      <th>Departs</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% flights.forEach(function(m) { %>
+      <tr>
+        <td><%= m.airline %></td>
+        <td><%= m.airport %></td>
+        <td><%= m.flightNo %></td>
+        <td><%= m.departs.toUTCString() %></td>
+        <td><a href="/flights/<%= m._id %>">DETAILS</a></td>
+        <td><a href="/flights/<%= m._id %>/delete">DELETE</a></td>
+        <td><a href="/flights/<%= m._id %>/edit">EDIT</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <br>
+  <a href="/flights/new">Add Flight</a>
+<%- include('../partials/footer') %>
+
